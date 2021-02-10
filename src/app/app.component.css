@@ -1,0 +1,35 @@
+
+    .container{
+            background-color:gray; 
+            padding-top:20px; 
+            padding-left:15px; 
+            padding-right:15px; 
+    }
+    #salesrep {
+       width: 70%;
+       float:left;
+       background-color: white;
+       margin-top: 5px;
+       margin-left: 10px;
+       margin-bottom: 5px;
+       padding-left: 10px;
+       padding-right:10px;
+    }
+    #performance {
+        margin-top: 5px;
+        margin-left: 10px;
+        margin-right: 1opx;
+        float: left;
+    }
+    #salesrepperformance{
+        background-color: white;
+        padding-right:10px;
+        padding-left:10px;
+    }
+    #drugperformance{
+        background-color: white;
+        margin-top: 10px;
+        padding-right: 10px;
+        padding-left:10px;
+    }
+
