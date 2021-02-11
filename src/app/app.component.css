@@ -1,35 +1,45 @@
 
     .container{
-            background-color:gray; 
-            padding-top:20px; 
-            padding-left:15px; 
-            padding-right:15px; 
+        margin-left:10px;
+        margin-right:10px;
+        margin-bottom:5px;
     }
-    #salesrep {
+    .salesrep {
        width: 70%;
        float:left;
-       background-color: white;
-       margin-top: 5px;
-       margin-left: 10px;
-       margin-bottom: 5px;
+    }
+
+    #salesdata{
        padding-left: 10px;
        padding-right:10px;
+       padding-bottom: 5px;
+       padding-top:5px;
+        background-color: white;
+        border:2px solid black;
+        height: 100%;
     }
-    #performance {
-        margin-top: 5px;
+
+    .performance {
+        width:29%;
         margin-left: 10px;
-        margin-right: 1opx;
         float: left;
+
     }
     #salesrepperformance{
-        background-color: white;
+        padding-top: 5px;
+        padding-bottom: 5px;
         padding-right:10px;
         padding-left:10px;
+        background-color:white;
+        border:2px solid black;
     }
     #drugperformance{
-        background-color: white;
-        margin-top: 10px;
-        padding-right: 10px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-right:10px;
         padding-left:10px;
+        margin-top: 10px;
+        background-color:white;
+        border:2px solid black;
     }
 

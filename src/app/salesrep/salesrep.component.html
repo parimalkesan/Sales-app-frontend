@@ -1,0 +1,22 @@
+<h3>Sales Representative list</h3>
+<input type="text" #text>
+<button (click)="getSearchCriteria(text)">Search</button>
+
+<input id="limitinput" type="range" min="10" max="50" value="10" #limit>
+
+<button id="createnew">Create new</button>
+
+<br><br>
+
+<table>
+    <tr>
+        <th *ngFor = "let column of headers">
+            {{column}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </th>
+    </tr>
+    <tr *ngFor="let salesrep of salesRepData">
+        <td *ngFor="let column of index">
+            {{salesrep[column]}}
+        </td>
+    </tr>
+</table>
