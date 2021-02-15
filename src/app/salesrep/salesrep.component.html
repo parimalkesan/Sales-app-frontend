@@ -1,10 +1,17 @@
 <h3>Sales Representative list</h3>
 <input type="text" #text>
 <button (click)="getSearchCriteria(text)">Search</button>
+<button *ngIf="loadData" (click)="loadCompleteData()">Back</button>
 
-<input id="limitinput" type="range" min="10" max="50" value="10" #limit>
+<select id="limitinput" #limit (change)="getLimit(limit)">
+    <option value=10>10</option>
+    <option value=20>20</option>
+    <option value=30>30</option>
+    <option value=40>40</option>
+    <option value=50>50</option>
+</select>
 
-<button id="createnew">Create new</button>
+<button id="createnew" (click)="showCreateForm()">Create new record</button>
 
 <br><br>
 
@@ -14,9 +21,58 @@
             {{column}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           </th>
     </tr>
-    <tr *ngFor="let salesrep of salesRepData">
+    <tr *ngFor="let salesrep of salesRepData | paginate:{itemsPerPage:dataLimit,currentPage:currPage}">
         <td *ngFor="let column of index">
             {{salesrep[column]}}
         </td>
+        <td><Button value={{salesrep.salesRepId}} #editdata (click)="showEditForm(editdata)">Edit record</Button></td>
+        <td><Button value={{salesrep.salesRepId}} #deletedata (click)="deleteRecord(deletedata)">Delete record</Button>
+        </td>
     </tr>
 </table>
+<div>
+    <pagination-controls (pageChange)="currPage=$event"></pagination-controls>
+</div>
+
+
+<div *ngIf="openCreateForm">
+<form #addSalesDataForm="ngForm" (ngSubmit)="addSalesData(addSalesDataForm.value)">
+    <table>
+    <tr><td>Id</td>
+    <td><input type="text" name="salesRepId" ngModel></td></tr>
+    <tr><td>Name</td>
+    <td><input type="text" name="salesRepName" ngModel></td></tr>
+    <tr><td>Country</td>
+    <td><input type="text" name="country" ngModel></td></tr>
+    <tr><td>City</td>
+    <td><input type="text" name="city" ngModel></td></tr>
+    <tr><td>Pincode</td>
+    <td><input type="text" name="pinCode" ngModel></td></tr>
+    <tr><td>Gender</td>
+    <td><input type="text" name="gender" ngModel><br></td></tr>
+    <tr><td></td>
+    <td><Button type="submit">Create new record</Button></td></tr>
+</table>
+</form>
+</div>
+
+<div *ngIf="openEditForm">
+    <form #editSalesDataForm="ngForm" (ngSubmit)="editSalesData(editSalesDataForm.value)">
+        <table>
+        <tr><td>Id</td>
+        <td><input type="text" name="salesRepId" ngModel="{{salesRepId}}" readonly></td></tr>
+        <tr><td>Name</td>
+        <td><input type="text" name="salesRepName" ngModel></td></tr>
+        <tr><td>Country</td>
+        <td><input type="text" name="country" ngModel></td></tr>
+        <tr><td>City</td>
+        <td><input type="text" name="city" ngModel></td></tr>
+        <tr><td>Pincode</td>
+        <td><input type="text" name="pinCode" ngModel></td></tr>
+        <tr><td>Gender</td>
+        <td><input type="text" name="gender" ngModel><br></td></tr>
+        <tr><td></td>
+        <td><Button type="submit">Edit record</Button></td></tr>
+    </table>
+    </form>
+    </div>

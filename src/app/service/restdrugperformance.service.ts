@@ -11,8 +11,7 @@ export class RestdrugperformaceService {
   url:string="http://localhost:8080/Sales_App_war_exploded/webapi/drugsalesdata";
 
   getDrugPerformanceData(city) {
-    let headerOptions=new HttpHeaders().set('Access-Control-Allow-Origin','*');
     const params = new HttpParams({fromString: 'city='+city});
-    return this.httpClient.get<DrugModel[]>(this.url,{ headers:headerOptions, params: params });
+    return this.httpClient.get<DrugModel[]>(this.url,{ params: params });
   }
 }

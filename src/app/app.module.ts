@@ -6,6 +6,8 @@ import { SalesrepComponent } from './salesrep/salesrep.component';
 import { SalesrepperformanceComponent } from './salesrepperformance/salesrepperformance.component';
 import { DrugperformanceComponent } from './drugperformance/drugperformance.component';
 import { HttpClientModule } from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent] 
