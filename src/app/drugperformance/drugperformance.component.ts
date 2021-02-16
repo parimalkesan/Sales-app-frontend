@@ -11,7 +11,7 @@ export class DrugperformanceComponent implements OnInit {
 
   constructor(private rs:RestdrugperformaceService) { }
 
-  selectedCity='London';
+  selectedCity='Delhi';
   drugPerformanceData:DrugModel[]=[];
 
   getCity(city)

@@ -1,14 +1,16 @@
 <h3>Drug of the month</h3>
 <select #productcity (change)="getCity(productcity)">
-    <option value="London">London</option>
+    <option value="Delhi">Delhi</option>
     <option value="Pune">Pune</option>
-    <option value="Dehradun">Dehradun</option>
+    <option value="Kolkata">Kolkata</option>
+    <option value="Bangalore">Bangalore</option>
+    <option value="Rajkot">Rajkot</option>
+    <option value="Jaipur">Jaipur</option>
 </select>
 
 <h4 *ngFor="let drugperformancedata of drugPerformanceData">
     {{drugperformancedata.drugName}}<br>
     {{drugperformancedata.drugSales}}
-    <br>
     <br>
 </h4>
 

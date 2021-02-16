@@ -22,26 +22,13 @@ export class SalesrepComponent implements OnInit {
 
   constructor(private rs:RestsalesdataService) { }
 
-  getSearchCriteria(text)
+  searchFunction()
   {
-    if(text.value.length<3)
+    if(this.searchText!="")
     {
-      alert('Please enter atleast 3 characters')
-    }
-    else{
-      this.searchText=text.value;
-      this.getSalesData(this.searchText);
-      this.loadData=true;
       this.currPage=1;
     }
-  }
-
-  loadCompleteData()
-  {
-    this.searchText="";
     this.getSalesData(this.searchText);
-    this.loadData=false;
-    this.currPage=1;
   }
 
   getLimit(limit)
@@ -53,6 +40,7 @@ export class SalesrepComponent implements OnInit {
   showCreateForm()
   {
     this.openCreateForm=true;
+    this.openEditForm=false;
   }
 
   addSalesData(salesRepData)
@@ -83,6 +71,7 @@ export class SalesrepComponent implements OnInit {
   showEditForm(editdata)
   {
     this.openEditForm=true;
+    this.openCreateForm=false;
     this.salesRepId=editdata.value;
   }
 

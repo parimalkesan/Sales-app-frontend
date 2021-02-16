@@ -8,7 +8,7 @@ import { SalesRepPerformanceModel } from '../model/SalesRepPerformanceModel';
   styleUrls: ['./salesrepperformance.component.css']
 })
 export class SalesrepperformanceComponent implements OnInit {
-  selectedProduct='Med123'
+  selectedProduct='Solvin cold'
   selectedMonth=1
   salesRepPerformanceData:SalesRepPerformanceModel[]=[];
 

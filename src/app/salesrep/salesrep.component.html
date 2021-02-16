@@ -1,7 +1,6 @@
 <h3>Sales Representative list</h3>
-<input type="text" #text>
-<button (click)="getSearchCriteria(text)">Search</button>
-<button *ngIf="loadData" (click)="loadCompleteData()">Back</button>
+
+<input type="text" [(ngModel)]="searchText" (ngModelChange)="searchFunction()" placeholder="Enter name to search"/>
 
 <select id="limitinput" #limit (change)="getLimit(limit)">
     <option value=10>10</option>
@@ -60,7 +59,7 @@
     <form #editSalesDataForm="ngForm" (ngSubmit)="editSalesData(editSalesDataForm.value)">
         <table>
         <tr><td>Id</td>
-        <td><input type="text" name="salesRepId" ngModel="{{salesRepId}}" readonly></td></tr>
+        <td><input type="text" name="salesRepId" [(ngModel)]="salesRepId"></td></tr>
         <tr><td>Name</td>
         <td><input type="text" name="salesRepName" ngModel></td></tr>
         <tr><td>Country</td>
